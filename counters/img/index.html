@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Increment & Decrement</title>
+    <style>
+    .title{
+         text-align: center;
+        }
+                
+     .product-card{
+        width:300px;
+        height:400px;
+        border:solid 2px black;
+        margin: 10px auto ;
+            
+        }
+    .img{
+        height:150px; 
+        display: block;
+         margin: 10px auto;
+
+        } 
+    .btn{
+        display:block;
+        margin: 10px auto;
+        justify-content: center;
+        background-color: rgb(180, 108, 108);
+        color: white;
+
+
+        }
+    .name {
+          text-align: center;
+          padding: 10px 0 10px 0;
+          margin: 20px 0 0 0;
+          font-size: 20px;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          color: rgb(0, 0, 0);
+        }  
+   .role {
+         text-align: center;
+         font-size: 18px;
+         margin-top: 0;
+         padding-top: -10;
+         color: rgb(82, 80, 80);
+         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+  .container{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        }
+
+   .btn-quantity{
+    height:40px;
+    
+    
+   }   
+   .btn-buy-container{
+    align-items: center;
+    justify-content:space-around;
+    display: flex;
+    cursor: pointer;
+   }
+  .quantity-text{
+    font-size: 40px;
+    cursor: pointer;
+  }  
+  .navigation{
+          text-align: end;
+          color: rgb(11, 11, 11);
+        }
+    </style>
+</head>
+<body>
+    <a href="diceroller.html" class="navigation">click here to diceroller page</a>
+
+    <h1 class="title">Buy Fresh Vegetables</h1>
+
+    <div class="container"> 
+        <div class="product-card">
+            <img src="./broccoli.png" class="img"/>
+            <p class="name"><b>Broccoli</b></p>
+            <p class="role">$12.34 per kg<br> Quantity</p>
+            <div class="btn-buy-container">
+                <img src="./minus.png" class="btn-quantity" onclick="handleQuantityChange('dec', 'broccoli-quantity')"/>
+                <span id="broccoli-quantity" class="quantity-text">1</span>
+                <img src="./plus.png" class="btn-quantity" onclick="handleQuantityChange('inc', 'broccoli-quantity')"/>
+            </div>
+            <button class="btn">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+            <img src="./carrots.png" class="img"/>
+            <p class="name"><b>Carrots</b></p>
+            <p class="role">$10.50 per kg<br> Quantity</p>
+            <div class="btn-buy-container">
+                <img src="./minus.png" class="btn-quantity" onclick="handleQuantityChange('dec', 'carrots-quantity')"/>
+                <span id="carrots-quantity" class="quantity-text">1</span>
+                <img src="./plus.png" class="btn-quantity" onclick="handleQuantityChange('inc', 'carrots-quantity')"/>
+            </div>
+            <button class="btn">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+            <img src="./potato.png" class="img"/>
+            <p class="name"><b>Potato</b></p>
+            <p class="role">$10.50 per kg<br> Quantity</p>
+            <div class="btn-buy-container">
+                <img src="./minus.png" class="btn-quantity" onclick="handleQuantityChange('dec', 'potato-quantity')"/>
+                <span id="potato-quantity" class="quantity-text">1</span>
+                <img src="./plus.png" class="btn-quantity" onclick="handleQuantityChange('inc', 'potato-quantity')"/>
+            </div>
+            <button class="btn">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+            <img src="./tomato.png" class="img"/>
+            <p class="name"><b>Tomato</b></p>
+            <p class="role">$10.45 per kg<br> Quantity</p>
+            <div class="btn-buy-container">
+                <img src="./minus.png" class="btn-quantity" onclick="handleQuantityChange('dec', 'tomato-quantity')"/>
+                <span id="tomato-quantity" class="quantity-text">1</span>
+                <img src="./plus.png" class="btn-quantity" onclick="handleQuantityChange('inc', 'tomato-quantity')"/>
+            </div>
+            <button class="btn">Buy Now</button>
+        </div>
+    </div>
+
+    <script>
+        function handleQuantityChange(action, elementId) {
+            const quantityElement = document.getElementById(elementId);
+            let quantity = parseInt(quantityElement.innerText);
+            if (action === 'inc') {
+                quantityElement.innerText = ++quantity;
+            } else if (action === 'dec' && quantity > 1) {
+                quantityElement.innerText = --quantity;
+            }
+        }
+    </script>
+</body>
+</html>
